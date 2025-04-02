@@ -1,7 +1,14 @@
 import 'dart:math';
 import 'package:flutter/material.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'firebase_options.dart';
+import 'screens/melody_list_screen.dart';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
   runApp(const MyApp());
 }
 
@@ -54,6 +61,18 @@ class LandingPage extends StatelessWidget {
               },
               child: const Text('Play vs Another Player'),
             ),
+            const SizedBox(height: 20),
+            ElevatedButton(
+              onPressed: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => const MelodyListScreen(),
+                  ),
+                );
+              },
+              child: const Text('MIDI Database'),
+            ),
           ],
         ),
       ),
@@ -65,10 +84,10 @@ class ComputerModeGame extends StatefulWidget {
   const ComputerModeGame({super.key});
 
   @override
-  _ComputerModeGameState createState() => _ComputerModeGameState();
+  ComputerModeGameState createState() => ComputerModeGameState();
 }
 
-class _ComputerModeGameState extends State<ComputerModeGame> {
+class ComputerModeGameState extends State<ComputerModeGame> {
   final int maxNum = 40;
   late List<List<String>> doc;
   int docIndex = 0;
@@ -92,7 +111,8 @@ class _ComputerModeGameState extends State<ComputerModeGame> {
   String generateRandomString() {
     const String chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz';
     var random = Random.secure();
-    var values = List<String>.generate(5, (i) => chars[random.nextInt(chars.length)]);
+    var values =
+        List<String>.generate(5, (i) => chars[random.nextInt(chars.length)]);
     String currentStr = values.join('');
     setState(() {
       docIndex++;
@@ -135,7 +155,8 @@ class _ComputerModeGameState extends State<ComputerModeGame> {
               Text('Generated String: $generatedStr'),
               TextField(
                 controller: userInputController,
-                decoration: const InputDecoration(hintText: 'Enter a 5-character string'),
+                decoration: const InputDecoration(
+                    hintText: 'Enter a 5-character string'),
               ),
             ],
           ),
@@ -146,7 +167,8 @@ class _ComputerModeGameState extends State<ComputerModeGame> {
                 int grade = gradeUserString(userStr);
                 setState(() {
                   doc[docIndex][1] = userStr;
-                  result = 'Grade: $grade\nTotal Score: $totalScore\nGenerated String: $generatedStr\nUser String: $userStr';
+                  result =
+                      'Grade: $grade\nTotal Score: $totalScore\nGenerated String: $generatedStr\nUser String: $userStr';
                 });
                 Navigator.of(context).pop();
                 askToPlayAgain();
@@ -183,7 +205,8 @@ class _ComputerModeGameState extends State<ComputerModeGame> {
                   builder: (BuildContext context) {
                     return AlertDialog(
                       title: const Text('Thank You!'),
-                      content: Text('Your final score is: $totalScore\nHave a nice day!'),
+                      content: Text(
+                          'Your final score is: $totalScore\nHave a nice day!'),
                       actions: [
                         TextButton(
                           onPressed: () {
@@ -235,16 +258,17 @@ class PlayerModeGame extends StatefulWidget {
   const PlayerModeGame({super.key});
 
   @override
-  _PlayerModeGameState createState() => _PlayerModeGameState();
+  PlayerModeGameState createState() => PlayerModeGameState();
 }
 
-class _PlayerModeGameState extends State<PlayerModeGame> {
+class PlayerModeGameState extends State<PlayerModeGame> {
   final int maxNum = 40;
   late List<List<String>> doc;
   int docIndex = 0;
   int totalScore = 0;
   String result = '';
-  final TextEditingController generatedStringController = TextEditingController();
+  final TextEditingController generatedStringController =
+      TextEditingController();
   final TextEditingController userInputController = TextEditingController();
 
   @override
@@ -287,7 +311,8 @@ class _PlayerModeGameState extends State<PlayerModeGame> {
           title: const Text('Player 1: Enter a String'),
           content: TextField(
             controller: generatedStringController,
-            decoration: const InputDecoration(hintText: 'Enter a 5-character string'),
+            decoration:
+                const InputDecoration(hintText: 'Enter a 5-character string'),
           ),
           actions: [
             TextButton(
@@ -318,7 +343,8 @@ class _PlayerModeGameState extends State<PlayerModeGame> {
           title: const Text('Player 2: Your Turn'),
           content: TextField(
             controller: userInputController,
-            decoration: const InputDecoration(hintText: 'Enter a 5-character string'),
+            decoration:
+                const InputDecoration(hintText: 'Enter a 5-character string'),
           ),
           actions: [
             TextButton(
@@ -327,7 +353,8 @@ class _PlayerModeGameState extends State<PlayerModeGame> {
                 int grade = gradeUserString(userStr);
                 setState(() {
                   doc[docIndex][1] = userStr;
-                  result = 'Grade: $grade\nTotal Score: $totalScore\nGenerated String: ${doc[docIndex][0]}\nUser String: $userStr';
+                  result =
+                      'Grade: $grade\nTotal Score: $totalScore\nGenerated String: ${doc[docIndex][0]}\nUser String: $userStr';
                 });
                 Navigator.of(context).pop();
                 askToPlayAgain();
@@ -364,7 +391,8 @@ class _PlayerModeGameState extends State<PlayerModeGame> {
                   builder: (BuildContext context) {
                     return AlertDialog(
                       title: const Text('Thank You!'),
-                      content: Text('Your final score is: $totalScore\nHave a nice day!'),
+                      content: Text(
+                          'Your final score is: $totalScore\nHave a nice day!'),
                       actions: [
                         TextButton(
                           onPressed: () {
