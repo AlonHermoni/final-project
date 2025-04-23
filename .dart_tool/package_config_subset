@@ -58,6 +58,14 @@ flutter_lints
 3.5
 file:///C:/Users/fggha/AppData/Local/Pub/Cache/hosted/pub.dev/flutter_lints-5.0.0/
 file:///C:/Users/fggha/AppData/Local/Pub/Cache/hosted/pub.dev/flutter_lints-5.0.0/lib/
+http
+3.4
+file:///C:/Users/fggha/AppData/Local/Pub/Cache/hosted/pub.dev/http-1.3.0/
+file:///C:/Users/fggha/AppData/Local/Pub/Cache/hosted/pub.dev/http-1.3.0/lib/
+http_parser
+3.4
+file:///C:/Users/fggha/AppData/Local/Pub/Cache/hosted/pub.dev/http_parser-4.1.2/
+file:///C:/Users/fggha/AppData/Local/Pub/Cache/hosted/pub.dev/http_parser-4.1.2/lib/
 leak_tracker
 3.2
 file:///C:/Users/fggha/AppData/Local/Pub/Cache/hosted/pub.dev/leak_tracker-10.0.7/
@@ -118,6 +126,10 @@ test_api
 3.4
 file:///C:/Users/fggha/AppData/Local/Pub/Cache/hosted/pub.dev/test_api-0.7.3/
 file:///C:/Users/fggha/AppData/Local/Pub/Cache/hosted/pub.dev/test_api-0.7.3/lib/
+typed_data
+3.5
+file:///C:/Users/fggha/AppData/Local/Pub/Cache/hosted/pub.dev/typed_data-1.4.0/
+file:///C:/Users/fggha/AppData/Local/Pub/Cache/hosted/pub.dev/typed_data-1.4.0/lib/
 vector_math
 2.14
 file:///C:/Users/fggha/AppData/Local/Pub/Cache/hosted/pub.dev/vector_math-2.1.4/
@@ -130,10 +142,6 @@ web
 3.4
 file:///C:/Users/fggha/AppData/Local/Pub/Cache/hosted/pub.dev/web-1.1.1/
 file:///C:/Users/fggha/AppData/Local/Pub/Cache/hosted/pub.dev/web-1.1.1/lib/
-hi_world_app
-3.6
-file:///C:/Users/fggha/FinalProj/final-project/
-file:///C:/Users/fggha/FinalProj/final-project/lib/
 sky_engine
 3.2
 file:///C:/Users/fggha/FinalProj/flutter/bin/cache/pkg/sky_engine/
@@ -150,4 +158,8 @@ flutter_web_plugins
 3.2
 file:///C:/Users/fggha/FinalProj/flutter/packages/flutter_web_plugins/
 file:///C:/Users/fggha/FinalProj/flutter/packages/flutter_web_plugins/lib/
+hi_world_app
+3.6
+file:///C:/Users/fggha/final-project/
+file:///C:/Users/fggha/final-project/lib/
 2
